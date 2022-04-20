@@ -1,0 +1,32 @@
+Host jetson
+  ProxyCommand c:/Windows/System32/OpenSSH/ssh.exe server -W %h:%p
+  HostName localhost
+  User robocon
+  Port 43001
+# IdentityFile ~/.ssh/id_rsa_msi
+
+Host rapi
+  ProxyCommand c:/Windows/System32/OpenSSH/ssh.exe hkustracing -W %h:%p
+  HostName localhost
+  User ubuntu
+  Port 43001
+
+Host nano
+  HostName 192.168.1.120
+  User handsomechalex
+  ForwardAgent yes
+  ForwardX11 yes
+  IdentityFile ~/.ssh/id_rsa_jetson
+
+Host rtjetson
+  ProxyCommand c:/Windows/System32/OpenSSH/ssh.exe server -W %h:%p
+  User rtjetson
+  HostName localhost
+  IdentityFile ~/.ssh/id_rsa_rtjetson
+  Port 43007
+
+Host server
+  HostName leowong12138.tplinkdns.com
+  Port 26120
+  User ubuntu
+    
